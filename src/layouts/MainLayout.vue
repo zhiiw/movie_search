@@ -32,7 +32,7 @@
         
         <q-route-tab v-if="!isAdmin" to="/history">
           <q-tab-item>
-            <q-icon name="person" />Users
+            <q-icon name="person" />History
           </q-tab-item>
         </q-route-tab>
         <q-route-tab v-if="isAdmin" to="/admin">

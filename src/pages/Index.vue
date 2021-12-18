@@ -19,7 +19,7 @@
       </q-card>
     </div>
     <div class="row q-col-gutter-sm">
-      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" v-for="item, item_index in data">
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" v-for="(item, item_index) in data">
         <card-movie  v-if="item.tmdb_id!=null" :data="item"></card-movie>
       </div>
     </div>
@@ -29,7 +29,7 @@
     @click="onPaginationClick"
       v-model="current"
       color="purple"
-      
+
       :max="312"
       :max-pages="6"
       boundary-numbers
@@ -42,7 +42,7 @@
 import ExampleComponent from 'components/CompositionComponent.vue';
 import { Notify } from 'quasar';
 import CardMovie from 'src/components/CardMovie.vue';
-import { defineComponent, ref } from 'vue';
+import { defineComponent} from 'vue';
 import { api } from '../boot/axios'
 
 const ee = [
@@ -119,7 +119,7 @@ export default defineComponent({
   //     console.log(search.value)
   //     api.get('/movies/?search=' + (search.value)).then(res => {
   //       data = res.data.results;
-  //       
+  //
   //     })
   //   }
   //   return {
@@ -135,8 +135,8 @@ export default defineComponent({
       _this.data = res.data.results;
       console.log(_this.data)
     })
-    
-    
+
+
   },
   data(){
     return {
@@ -154,7 +154,7 @@ export default defineComponent({
         console.log(_this.data)
       })
     },
-    
+
     searchUpdate(){
       api.get('/movies/?search=' +(this.search)).then(res => {
         console.log(res)
