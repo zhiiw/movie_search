@@ -131,7 +131,7 @@ export default defineComponent({
   created(){
     let _this=this
 
-    api.get('/movies/?offset=' + (this.current-1)).then(res => {
+    api.get('/movies/?offset=' + (this.current-1)*100).then(res => {
       _this.data = res.data.results;
       console.log(_this.data)
     })
@@ -149,7 +149,7 @@ export default defineComponent({
   methods: {
     onPaginationClick(){
       let _this=this
-      api.get('/movies/?offset=' + (this.current-1)).then(res => {
+      api.get('/movies/?offset=' + (this.current-1)*100).then(res => {
         _this.data = res.data.results;
         console.log(_this.data)
       })
